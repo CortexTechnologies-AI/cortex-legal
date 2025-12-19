@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMS Notifications | Cortex Technologies</title>
+    <title>Unsubscribe from SMS | Cortex Technologies</title>
     <style>
         * {
             margin: 0;
@@ -33,6 +33,9 @@
         .logo {
             text-align: center;
             margin-bottom: 30px;
+        }
+        .logo a {
+            text-decoration: none;
         }
         .logo h1 {
             font-size: 28px;
@@ -79,44 +82,28 @@
         }
         input[type="tel"]:focus {
             outline: none;
-            border-color: #00d4ff;
+            border-color: #ff6b6b;
         }
         input[type="tel"]::placeholder {
             color: #666;
         }
-        .consent-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .info-box {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
             border-radius: 8px;
             padding: 16px;
             margin-bottom: 24px;
-        }
-        .consent-box label {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            cursor: pointer;
-            margin: 0;
-        }
-        .consent-box input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            flex-shrink: 0;
-            accent-color: #00d4ff;
-        }
-        .consent-text {
             font-size: 13px;
             line-height: 1.5;
-            color: #bbb;
+            color: #ffaaaa;
         }
-        .consent-text strong {
-            color: #fff;
+        .info-box strong {
+            color: #ff6b6b;
         }
         button {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #8b0000 100%);
             border: none;
             border-radius: 8px;
             color: #fff;
@@ -127,13 +114,7 @@
         }
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
         .footer {
             margin-top: 30px;
@@ -154,70 +135,86 @@
             padding: 20px;
         }
         .success-message h3 {
-            color: #00d4ff;
+            color: #ff6b6b;
             margin-bottom: 10px;
+        }
+        .success-message p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        .alt-method {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .alt-method p {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .alt-method .sms-code {
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <a href="https://cortextechnologies.ai" style="text-decoration: none;">
+            <a href="https://cortextechnologies.ai">
                 <h1>CORTEX</h1>
                 <span>Technologies</span>
             </a>
         </div>
 
         <div id="form-section">
-            <h2>SMS Notifications</h2>
-            <p class="subtitle">Receive system alerts and account notifications</p>
+            <h2>Unsubscribe from SMS</h2>
+            <p class="subtitle">Stop receiving notifications from Cortex Technologies</p>
 
-            <form id="sms-form">
+            <form id="unsubscribe-form">
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
                 </div>
 
-                <div class="consent-box">
-                    <label>
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <span class="consent-text">
-                            I agree to receive <strong>system alerts and notifications</strong> from
-                            <strong>Cortex Technologies</strong> at the phone number provided.
-                            Message frequency varies. Message and data rates may apply.
-                            Reply <strong>STOP</strong> to unsubscribe. Reply <strong>HELP</strong> for help.
-                        </span>
-                    </label>
+                <div class="info-box">
+                    By clicking unsubscribe, you will <strong>stop receiving all SMS notifications</strong>
+                    from Cortex Technologies at this phone number. You can re-subscribe at any time.
                 </div>
 
-                <button type="submit" id="submit-btn" disabled>Subscribe to Alerts</button>
+                <button type="submit">Unsubscribe</button>
             </form>
+
+            <div class="alt-method">
+                <p>You can also unsubscribe by texting:</p>
+                <p class="sms-code">STOP</p>
+                <p>to +1 (855) 513-7511</p>
+            </div>
         </div>
 
         <div id="success-section" class="success-message">
-            <h3>You're Subscribed!</h3>
-            <p>You'll receive a confirmation message shortly.</p>
+            <h3>You've Been Unsubscribed</h3>
+            <p>You will no longer receive SMS notifications from Cortex Technologies.</p>
+            <p style="font-size: 13px; color: #666;">Changed your mind? <a href="/">Subscribe again</a></p>
         </div>
 
         <div class="footer">
             <a href="https://cortextechnologies.ai">Main Site</a> &nbsp;|&nbsp;
+            <a href="/">SMS Opt-In</a> &nbsp;|&nbsp;
             <a href="/privacy">Privacy Policy</a> &nbsp;|&nbsp;
-            <a href="/terms">Terms of Service</a> &nbsp;|&nbsp;
-            <a href="/unsubscribe">Unsubscribe</a>
+            <a href="/terms">Terms of Service</a>
             <p style="margin-top: 15px;">&copy; 2025 Cortex Technologies. All rights reserved.</p>
         </div>
     </div>
 
     <script>
-        const checkbox = document.getElementById('consent');
-        const submitBtn = document.getElementById('submit-btn');
-        const form = document.getElementById('sms-form');
+        const form = document.getElementById('unsubscribe-form');
         const formSection = document.getElementById('form-section');
         const successSection = document.getElementById('success-section');
-
-        checkbox.addEventListener('change', function() {
-            submitBtn.disabled = !this.checked;
-        });
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
